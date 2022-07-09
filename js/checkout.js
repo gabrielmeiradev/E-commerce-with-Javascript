@@ -76,3 +76,12 @@ function openCart(){
     window.sessionStorage.setItem("openCart", true);
     window.location.href = 'index.html';
 }
+
+const finishButton = document.querySelector(".button-purchase");
+finishButton.addEventListener('click', () => {
+    Swal.fire(
+        'Compra concluída!',
+        'Projeto por Gabriel Meira',
+        'success'
+      )
+})
