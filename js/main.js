@@ -69,14 +69,6 @@ let products = [{
 let carrinho = [];
 const categorias = ['Camiseta', 'Calça', 'Moletom', 'Jaqueta'];
 
-function getIndexOfProduct(Cart, ProductId) {
-    Cart.forEach((product, index) => {
-        if (product.id == ProductId) {
-            return index;
-        }
-    });
-}
-
 function FindProductInCart(Cart, ProductIndex) {
     let Answer = false;
     if (Cart.length == 0) {
