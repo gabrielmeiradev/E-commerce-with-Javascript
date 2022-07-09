@@ -1,0 +1,142 @@
+
+.payment-sections section h2{
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: .9em;
+    color:rgb(105, 105, 105);
+    border-bottom: solid 2px rgb(214, 214, 214);
+    line-height: 30px;
+}
+
+.payment-sections section p{
+    line-height: 10px;
+    font-size: .9em;
+    font-weight: 500;
+    
+}
+
+.checkout-sections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input-area{
+    height: 25px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.input-area label{
+    color:rgb(105, 105, 105);
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: .7em;
+    line-height: 20px;
+}
+
+.input-area input{
+    outline: none;
+    padding: 5px 10px;
+    border: 2px solid rgb(194, 194, 194);
+    border-radius: 4px;
+}
+
+.input-area input:focus{
+    border: 2px solid #58e458;
+}
+
+.button-purchase{
+    width: 100%;
+    display: flex;
+    line-height: 40px;
+    background-color: #12a512;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.sm-section{
+    width: 30vw;
+}
+
+.lg-section{
+    width: 60vw;
+}
+.cart-product-image{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+}
+
+.cart-product{
+    width: 95%;
+    height: 100px;
+    padding: 20px;
+    border-bottom: solid 2px rgb(214, 214, 214);
+}
+
+#order{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-product-qnt input{
+    -moz-appearance: textfield;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    width: 20px;
+    border: 1.7px solid rgb(194, 194, 194);
+    outline: none;
+    transition: ease .2s;
+}
+
+.card-product-qnt input:focus{
+    border: 1.7px solid #12a512;
+    background-color: #12a512;
+    color: white;
+}
+
+.cart-product-info-text {
+    width: 200px;
+}
+
+.cart-product-info-text p{
+    line-height: 20px !important;
+}
+
+.cart-product-info-text small{
+    font-weight: 500;
+    color: rgb(194, 194, 194);
+}
+
+.card-product-price p{
+    width: 100px;
+    text-align: right;
+}
+
+.total-price-text{
+    color: black !important;
+    width: fit-content !important;
+    font-size: 2em !important;
+    border: none !important;
+    font-weight: 100 !important;
+}
+
+.edit-cart{
+    font-size: .6em;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transform: scale(.7);
+    color: rgba(0, 0, 0, .7);
+    text-transform: uppercase;
+    cursor: pointer;
+}
