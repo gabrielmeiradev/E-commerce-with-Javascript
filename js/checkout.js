@@ -31,6 +31,9 @@ function desrealize(price) {
 }
 
 CarrinhoStored.forEach((product, i) => {
+
+    product.priceWithQuantity = product.price;
+
     let cartProductElement = document.createElement('div');
     cartProductElement.className = 'cart-product flex-row space-between';
     cartProductElement.innerHTML = 
@@ -45,7 +48,7 @@ CarrinhoStored.forEach((product, i) => {
     </div>
     </div>
     <div class="card-product-qnt">
-        <input type="number" value="1" min="1" max="100" onchange="changePriceState(${product.id-1}, ${product.price}, this.value)" inputmode='numeric' />
+        <input type="number" value="1" min="1" max="100" onchange="changePriceState(${product.id-1}, this.value, this)" inputmode='numeric' />
     </div>
     <div class="card-product-price">
         <p id="priceOfProduct${product.id-1}" class='priceOfProduct' >${realize(product.price)}</p>
@@ -56,16 +59,37 @@ CarrinhoStored.forEach((product, i) => {
 
 let total = 0;
 let allPricesElements = document.querySelectorAll('.priceOfProduct');
-function changePriceState(priceId, price, inputValue){
-    document.querySelector('#priceOfProduct' + priceId).innerHTML = realize(price * inputValue);
+
+function getIndexOfProduct(Cart, ProductId) {
+    let Index = 0;
+    Cart.forEach((product, index) => {
+        if (product.id == ProductId) {
+            Index = index
+        }
+    });
+
+    return Index;
+
+function changePriceState(priceId, inputValue, inputElement){
+    if(inputValue <= 0){
+        inputElement.value = 1;
+    } else if(inputValue >= 100){
+        inputElement.value = 100;
+    }
+
+    let currentProductEditing = CarrinhoStored[getIndexOfProduct(CarrinhoStored, priceId+1)]
+    currentProductEditing.priceWithQuantity = currentProductEditing.price*inputValue;
+    document.querySelector('#priceOfProduct' + priceId).innerHTML = realize(currentProductEditing.priceWithQuantity);
     UpdateTotalPrice();
 }
 
-const totalPriceTextElement = document.querySelector('.total-price-text');
+let totalPriceTextElement = document.querySelector('.total-price-text');
 
 function UpdateTotalPrice(){
-    allPricesElements.forEach((PriceElement) => {
-        total+=desrealize(PriceElement.innerHTML);
+    let total = 0;
+
+    CarrinhoStored.forEach(product => {
+        total+=product.priceWithQuantity
     })
 
     totalPriceTextElement.innerHTML = realize(total);
