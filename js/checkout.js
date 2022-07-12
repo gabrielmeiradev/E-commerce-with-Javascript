@@ -69,6 +69,7 @@ function getIndexOfProduct(Cart, ProductId) {
     });
 
     return Index;
+}
 
 function changePriceState(priceId, inputValue, inputElement){
     if(inputValue <= 0){
